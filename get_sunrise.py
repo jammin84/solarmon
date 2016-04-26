@@ -6,8 +6,14 @@
 # pyephem http://rhodesmill.org/pyephem/ does all the hard work
 import ephem
 import ConfigParser
+import os 
 
-config = "/home/andrew/solarmon.cfg"
+config = os.path.dirname(os.path.realpath(__file__)) + "/solarmon.cfg"
+
+if (false == os.path.isfile(config) ) {
+  print "error: 999, errormsg: %s file not found" % (config)
+  return 999
+  }
 
 settings = ConfigParser.RawConfigParser()
 settings.read(config)
